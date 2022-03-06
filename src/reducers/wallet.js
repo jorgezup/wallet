@@ -2,13 +2,14 @@
 import { WALLET } from '../actions';
 
 const INITIAL_STATE = {
-  data: '',
+  currencies: [],
+  expenses: [],
 };
 
 function walletReducer(state = INITIAL_STATE, action) {
   switch (action.type) {
   case WALLET:
-    return { ...state, data: action.payload };
+    return { ...state, ...action.payload };
   default:
     return state;
   }
