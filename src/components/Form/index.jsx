@@ -126,7 +126,7 @@ class Form extends Component {
             <option value="Lazer">Lazer</option>
             <option value="Trabalho">Trabalho</option>
             <option value="Transporte">Transporte</option>
-            <option value="Saude">Saude</option>
+            <option value="Saúde">Saúde</option>
           </select>
         </label>
         <label htmlFor="description">
