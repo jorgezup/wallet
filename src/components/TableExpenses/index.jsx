@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import PropTypes, { arrayOf } from 'prop-types';
 import { connect } from 'react-redux';
+import { removeExpense } from '../../actions/wallet';
 
 class TableExpenses extends Component {
-  calculatedValue = (value, currency) => {
-    const total = Number(value) * Number(currency);
-    return total.toFixed(2);
+  handleRemove = (id) => {
+    const { removeExpenseDispatch } = this.props;
+    removeExpenseDispatch(id);
   }
 
   render() {
@@ -28,7 +29,8 @@ class TableExpenses extends Component {
         <tbody>
           {
             expenses?.map((expense, index) => {
-              const exchangeCurrencyValue = expense.exchangeRates[expense.currency].ask;
+              const exchangeCurrency = expense.exchangeRates[expense.currency].ask;
+              const calculatedValue = Number(expense.value) * Number(exchangeCurrency);
               return (
                 <tr key={ index }>
                   <td>{expense.description}</td>
@@ -36,8 +38,8 @@ class TableExpenses extends Component {
                   <td>{expense.method}</td>
                   <td>{(Number(expense.value)).toFixed(2)}</td>
                   <td>{expense.exchangeRates[expense.currency].name}</td>
-                  <td>{Number(exchangeCurrencyValue).toFixed(2)}</td>
-                  <td>{this.calculatedValue(expense.value, exchangeCurrencyValue)}</td>
+                  <td>{Number(exchangeCurrency).toFixed(2)}</td>
+                  <td>{(calculatedValue).toFixed(2)}</td>
                   <td>Real</td>
                   <td>
                     <button
@@ -50,6 +52,7 @@ class TableExpenses extends Component {
                     <button
                       type="button"
                       data-testid="delete-btn"
+                      onClick={ () => this.handleRemove(expense.id) }
                     >
                       Excluir
 
@@ -70,10 +73,15 @@ TableExpenses.propTypes = {
   wallet: PropTypes.shape({
     expenses: arrayOf(Object),
   }).isRequired,
+  removeExpenseDispatch: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
   wallet: state.wallet,
 });
 
-export default connect(mapStateToProps, null)(TableExpenses);
+const mapDispatchToProps = (dispatch) => ({
+  removeExpenseDispatch: (id) => dispatch(removeExpense(id)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(TableExpenses);

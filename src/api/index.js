@@ -16,7 +16,7 @@ export async function getCurrenciesCode() {
   return data;
 }
 
-export async function getRates() {
+export async function getExchangeCurrencies() {
   const data = await currenciesWithoutUSDT();
   return data;
 }

@@ -1,0 +1,9 @@
+export const USER_LOGIN = 'USER_LOGIN';
+
+export const REQUEST_WALLET = 'REQUEST_WALLET';
+export const GET_WALLET_SUCCESS = 'GET_WALLET_SUCCESS';
+export const GET_WALLET_ERROR = 'GET_WALLET_ERROR';
+export const NEW_EXPENSE = 'NEW_EXPENSE';
+export const REMOVE_EXPENSE = 'REMOVE_EXPENSE';
+
+export const SET_CURRENCIES = 'SET_CURRENCIES';
