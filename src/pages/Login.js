@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { userData } from '../actions';
+import { userLogin } from '../actions';
 
 const minLength = 6;
 
@@ -88,7 +88,7 @@ class Login extends React.Component {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-  changeState: (state) => dispatch(userData(state)),
+  changeState: (state) => dispatch(userLogin(state)),
 });
 
 export default connect(null, mapDispatchToProps)(Login);

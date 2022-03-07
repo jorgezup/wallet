@@ -1,6 +1,11 @@
-import { USER_LOGIN } from './actionTypes';
+import { USER_LOGIN, UPDATE_USER } from './actionTypes';
 
-export default userLogin = (email) => ({
+export const userLogin = (email) => ({
   type: USER_LOGIN,
+  payload: email,
+});
+
+export const updateUser = (email) => ({
+  type: UPDATE_USER,
   payload: email,
 });

@@ -1,25 +1,17 @@
-// Coloque aqui suas actions
-export const USER = 'USER';
-export const WALLET = 'WALLET';
-export const NEW_EXPENSE = 'NEW_EXPENSE';
-export const REMOVE_EXPENSE = 'REMOVE_EXPENSE';
+import { userLogin } from './user';
 
-export const userData = (payload) => ({
-  type: USER,
-  payload,
-});
+import { addNewExpense,
+  fetchCurrenciesCode,
+  fetchWallet,
+  removeExpense,
+  setCurrencies,
+} from './wallet';
 
-export const walletData = (payload) => ({
-  type: WALLET,
-  payload,
-});
-
-export const newExpense = (expense) => ({
-  type: NEW_EXPENSE,
-  newExpense: expense,
-});
-
-export const removeExpense = (payload) => ({
-  type: REMOVE_EXPENSE,
-  payload,
-});
+export {
+  userLogin,
+  addNewExpense,
+  fetchCurrenciesCode,
+  fetchWallet,
+  removeExpense,
+  setCurrencies,
+};

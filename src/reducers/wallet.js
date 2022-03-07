@@ -1,11 +1,11 @@
 // Esse reducer será responsável por tratar o todas as informações relacionadas as despesas
-import { REMOVE_EXPENSE } from '../actions';
 import {
   REQUEST_WALLET,
   GET_WALLET_ERROR,
   GET_WALLET_SUCCESS,
   NEW_EXPENSE,
   SET_CURRENCIES,
+  REMOVE_EXPENSE,
 } from '../actions/actionTypes';
 
 const INITIAL_STATE = {

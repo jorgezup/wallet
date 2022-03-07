@@ -1,4 +1,5 @@
 export const USER_LOGIN = 'USER_LOGIN';
+export const UPDATE_USER = 'UPDATE_LOGIN';
 
 export const REQUEST_WALLET = 'REQUEST_WALLET';
 export const GET_WALLET_SUCCESS = 'GET_WALLET_SUCCESS';
