@@ -28,11 +28,11 @@ class TableExpenses extends Component {
         </thead>
         <tbody>
           {
-            expenses?.map((expense, index) => {
+            expenses?.map((expense) => {
               const exchangeCurrency = expense.exchangeRates[expense.currency].ask;
               const calculatedValue = Number(expense.value) * Number(exchangeCurrency);
               return (
-                <tr key={ index }>
+                <tr key={ expense.id }>
                   <td>{expense.description}</td>
                   <td>{expense.tag}</td>
                   <td>{expense.method}</td>
@@ -44,7 +44,7 @@ class TableExpenses extends Component {
                   <td>
                     <button
                       type="button"
-                      data-testid="edit-btn"
+                      // data-testid="edit-btn"
                     >
                       Editar
 
